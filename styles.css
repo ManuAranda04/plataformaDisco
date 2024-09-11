@@ -1,0 +1,81 @@
+/* Elementos */
+body{
+    background-color: rgb(90, 90, 90);
+    color: white;
+    font-family: "Kanit", system-ui;
+    margin: 0; /* Necesario para que funcione el margin de .listaCanciones */
+}
+
+ol{
+    list-style-type: none;
+    display: inline-block; /* Importante para que la lista quede alineada con el titulo*/
+    text-align: left; /* Mismo que arriba */
+}
+
+label{
+    display: inline-block;
+}
+/* Clases */
+.titulo{
+    text-align: center;
+    margin: 0px;
+}
+
+.parrafo{
+    background-color: rgb(75, 75, 75);
+    padding: 8px; /* Necesario para que no quede el texto tan pegado al borde de la página */
+}
+
+.listaCanciones{
+    background-color: rgb(75, 75, 75);
+    margin: 0px; /* Elimina los bordes a los costados */
+    text-align: center; /* Centrar el contenido*/
+}
+
+
+/* REGISTRO */
+.formClass{
+    background-color: rgb(75, 75, 75);
+    width: 40%;
+    color: white;
+    padding: 5%;
+    margin: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    border-radius: 4px;
+    box-shadow: 7px 13px 37px black;
+}
+
+.formClass h3{
+    text-align: center;
+    margin-bottom: 5%;
+    text-transform: uppercase;
+}
+
+.formClass form{
+    background-color: rgb(75, 75, 75);
+}
+
+.formLabel{
+    width: 100%;
+    padding: 4%;
+    margin-bottom: 0.5rem;
+    font-size: 100%;
+    border: 1px solid white;
+}
+
+.formInput{
+    border: none;
+    color: white;
+    width: 60%;
+    background-color: rgb(75, 75, 75);
+}
+
+.submitInput{
+    width: 100%;
+    background-color: rgb(30, 30, 30);
+    border: none;
+    color: white;
+    margin-top: 16px;
+    font-size: 16px;
+}
