@@ -11,41 +11,27 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Plataforma Disco</title>
 </head>
-<body>
-    <h1 class="titulo">El Indio Solari</h1>
+<body class="bg-zinc-700">
+    <!-- NAVBAR -->
 
-    <p class="parrafo">Carlos Alberto Solari (Paraná; 17 de enero de 1949), conocido artísticamente como Indio Solari, es un músico argentino, miembro fundador de los grupos Patricio Rey y sus Redonditos de Ricota, Los Fundamentalistas del Aire Acondicionado y El Mister y los Marsupiales Extintos.</p>
-    
-    <div class="listaCanciones">
-        <h2>Canciones</h2>
-        <ol>
-            <li>Ji Ji Ji</li>
-            <li>Juguetes Perdidos</li>
-            <li>La bestia pop</li>
-            <li>Todo un palo</li>
-            <li>Motor psico</li>
-            <li>asdasdads</li>
-            <li>asdasdads</li>
-            <li>asdasdads</li>
-            <li>asdasdads</li>
-            <li>asdasdads</li>
-            <li>asdasdads</li>
-            <li>asdasdads</li>
-            <li>asdasdads</li>
-            <li>asdasdads</li>
-            <li>asdasdads</li>
-            <li>asdasdads</li>
-            <li>asdasdads</li>
-            <li>asdasdads</li>
-            <li>asdasdads</li>
-            <li>asdasdads</li>
-        </ol>
-    </div>
+    <nav class="bg-zinc-950 py-6 relative">
+        <div class="container mx-auto flex px-8 xl:px-0">
+            <div class="flex flex-grow items-center">
+                <img src="./imagenes/patricio-rey-logo.png" alt="Los Redondos Logo">
+            </div>
+            <div class="flex lg:hidden">
+                <img src="./imagenes/icon _menu_.svg" onclick="abrirMenu()">
+            </div>
+            <div id="menu" class="lg:flex hidden flex-grow justify-between absolute lg:relative lg:top-0 top-20 left-0 bg-zinc-950 w-full lg:w-auto items-center py-14 lg:py-0 px-8 sm:px-24 lg:px-0">
+                <div class="flex flex-col lg:flex-row mb-8 lg:mb-0">
+                    <a class="text-white lg:mr-7" href="./signUp.html">Registrarse</a>
+                    <a class="text-white lg:mr-7" href="./login.html">Iniciar Sesión</a>
+                    <a class="text-white lg:mr-7" href="./addAlbum.html">Agregar Album</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <a href="./signUp.html">Registro</a>
-
-    <a href="./login.html">Login</a>
-
-    <a href="./addAlbum.html">Agregar album</a>
+    <script src="./scripts.js"></script>
 </body>
 </html>
