@@ -1,5 +1,4 @@
 let menu = document.getElementById('menu');
-abrirMenu();
 
 function abrirMenu(){
     if(menu.classList.contains('hidden')){

@@ -11,7 +11,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Plataforma Disco</title>
 </head>
-<body class="bg-zinc-700">
+<body class="bg-zinc-700 text-white kanit-regular">
     <!-- NAVBAR -->
 
     <nav class="bg-zinc-950 py-6 relative">
@@ -24,14 +24,41 @@
             </div>
             <div id="menu" class="lg:flex hidden flex-grow justify-between absolute lg:relative lg:top-0 top-20 left-0 bg-zinc-950 w-full lg:w-auto items-center py-14 lg:py-0 px-8 sm:px-24 lg:px-0">
                 <div class="flex flex-col lg:flex-row mb-8 lg:mb-0">
-                    <a class="text-white lg:mr-7" href="./signUp.html">Registrarse</a>
-                    <a class="text-white lg:mr-7" href="./login.html">Iniciar Sesión</a>
-                    <a class="text-white lg:mr-7" href="./addAlbum.html">Agregar Album</a>
+                    <a class="lg:mr-7 mb-8 lg:mb-0" href="./signUp.html">Registrarse</a>
+                    <a class="lg:mr-7 mb-8 lg:mb-0" href="./login.html">Iniciar Sesión</a>
+                    <a class="lg:mr-7 mb-8 lg:mb-0" href="./addAlbum.html">Agregar Album</a>
                 </div>
             </div>
         </div>
     </nav>
 
+    <!-- Titulo y Descripción -->
+
+    <div class="losRedondos">
+        <h1 class="text-4xl py-12">Los Redondos</h1>
+        
+        <p class="pt-12 pb-2 px-6">Patricio Rey y sus Redonditos de Ricota, también conocidos como Los Redondos, fue un grupo musical de rock argentino formado en La Plata en el año 1976 e integrado, en su mayor parte, por el Indio Solari (voz y composición), Skay Beilinson (guitarra y composición), Semilla Bucciarelli (bajo), Walter Sidotti (batería) y Sergio Dawi (saxofón, armónica y piano).</p>
+
+        <p class="pt-2 pb-24 px-6">Es considerado uno de los grupos más importantes e influyentes de la historia de la música de Argentina, así como también uno de los más convocantes en términos de audiencia.</p>
+    </div>
+
+    <!-- Primer Album -->
+
+    <div class="albumContainer">
+        <div class="album bg-zinc-800">
+            <a href="./gulpAlbum.html"><img src="./imagenes/gulp.jpeg" alt="Gulp! Album"></a>
+            <a href="./gulpAlbum.html"><h1 class="text-3xl hover:text-4xl bg-zinc-900">Gulp!</h1></a>
+
+            <a class="hover:text-sky-700" href="./gulpAlbum.html">Vista del album</a>
+        </div>
+
+        <div class="album bg-zinc-800">
+            <img src="./imagenes/oktubre.jpg" alt="Oktubre Album">
+            <h1 class="text-3xl hover:text-4xl bg-zinc-900">Oktubre</h1>
+
+            <a class="hover:text-sky-700" href="./oktubreAlbum.html">Vista del album</a>
+        </div>
+    </div>
     <script src="./scripts.js"></script>
 </body>
 </html>

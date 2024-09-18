@@ -5,6 +5,14 @@ label{
 
 /* Clases */
 
+/* TIPOGRAFIA */
+
+.kanit-regular{
+    font-family: "Kanit", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
 /* REGISTRO */
 .formClass{
     width: 40%;
@@ -49,4 +57,59 @@ label{
     color: white;
     margin-top: 16px;
     font-size: 16px;
+}
+
+/* PAGINA PRINCIPAL */
+.losRedondos{
+    text-align: center;
+
+}
+
+.losRedondos h1{
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* ALBUM */
+.albumContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.album{
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 7px 10px 12px black;
+    padding: 12px 12px 0px 12px;
+    margin: 10px;
+}
+
+.album img {
+    transition: transform .2s;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    width: 300px;
+}
+
+.album img:hover{
+    transform:scale(0.9);
+}
+
+/* LISTA DE CANCIONES */
+.listaCanciones{
+    margin: 0px 150px 0px 150px;
+    float: none;
+    display: flex;
+    align-items: center;
+}
+
+.listaCanciones span{
+    margin-left: 1.25em;
+    display: inline-block;
+}
+
+.listaCanciones span img{
+    float: right;
+    height: 24px;
 }
