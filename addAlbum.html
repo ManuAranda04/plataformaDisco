@@ -11,9 +11,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Plataforma Disco</title>
 </head>
-<body class="bg-zinc-700">
+<body class="bg-zinc-700 text-white kanit-regular">
     <div class="formClass bg-zinc-800">
-        <h1>Nuevo Album</h1>
+        <h3>Nuevo Album</h3>
 
         <form>
             <label class="formLabel">Titulo
@@ -24,10 +24,11 @@
             <label class="formLabel">Año de lanzamiento
                 <input class="formInput bg-zinc-800 text-white" type="date">
             </label>
-            <label class="formLabel">Descripción
-                <input class="formInput bg-zinc-800 text-white" type="text" placeholder="Descripcion">
-            </label>
+            <label class="formLabel">Descripción</label>
+            <textarea id="textareaInput" cols="80" rows="10"></textarea>
         </form>
+
+        <a href="./index.html"><h1 class="inicioForm">Volver al inicio</h1></a>
     </div>
 </body>
 </html>

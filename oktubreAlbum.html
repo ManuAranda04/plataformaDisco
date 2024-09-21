@@ -13,5 +13,82 @@
 </head>
 <body class="bg-zinc-700 text-white kanit-regular">
     
+    <!-- Navbar -->
+
+    <nav class="bg-zinc-950 py-6 relative">
+        <div class="container mx-auto flex px-8 xl:px-0">
+            <div class="flex flex-grow items-center">
+                <img src="./imagenes/patricio-rey-logo.png" alt="Los Redondos Logo">
+            </div>
+            <div class="flex lg:hidden">
+                <img src="./imagenes/icon _menu_.svg" onclick="abrirMenu()">
+            </div>
+            <div id="menu" class="lg:flex hidden flex-grow justify-between absolute lg:relative lg:top-0 top-20 left-0 bg-zinc-950 w-full lg:w-auto items-center py-14 lg:py-0 px-8 sm:px-24 lg:px-0">
+                <div class="flex flex-col lg:flex-row mb-8 lg:mb-0">
+                    <a class="lg:mr-7 mb-8 lg:mb-0" href="./index.html">Inicio</a>
+                    <a class="lg:mr-7 mb-8 lg:mb-0" href="./addSong.html">Agregar Canción</a>
+                    <a class="lg:mr-7 mb-8 lg:mb-0" href="./signUp.html">Registrarse</a>
+                    <a class="lg:mr-7 mb-8 lg:mb-0" href="./login.html">Acceder</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Titulo y descripción -->
+
+    <div>
+        <h1 class="text-4xl py-6 text-center uppercase">Oktubre</h1>
+
+        <p class="px-2 py-6 text-center">Oktubre es el segundo álbum de estudio del grupo de rock argentino 
+            Patricio Rey y sus Redonditos de Ricota. Fue editado en octubre de 1986. 
+            Grabado a mediados de 1986, el álbum se caracteriza por un sonido que incorporó influencias
+            del new wave y el post-punk (lo cual significó un cambio con respecto a su álbum anterior, Gulp!), 
+            y por su narrativa con elementos distópicos, inspirada por las revoluciones sociales históricas 
+            y el contexto bélico internacional de la Guerra Fría, así como también del escenario 
+            político de Argentina en el período de la vuelta a la democracia.
+        </p>
+    </div>
+
+    <!-- Lista de canciones -->
+    
+    <div id="canciones" class="bg-zinc-800 p-4 m-auto lg:w-3/4">
+        <ul>
+            <li class="flex justify-between items-center">
+                <div class="text-nowrap">Fuegos de octubre</div>
+                <div class="flex justify-between items-center">
+                    <div class="md:pr-32">3:37</div>
+                    <div class="md:pr-32">
+                        <a class="md:pr-32" href="#">
+                            <img src="./imagenes/note_audio_music_3097.png" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <button>
+                            <img src="./imagenes/biggarbagebin_121980.png" alt="">
+                        </button>
+                    </div>
+                </div>
+            </li>
+            <li class="flex justify-between items-center">
+                <div class="text-nowrap">Preso en mi ciudad</div>
+                <div class="flex justify-between items-center">
+                    <div class="md:pr-32">4:03</div>
+                    <div class="md:pr-32">
+                        <a class="md:pr-32" href="#">
+                            <img src="./imagenes/note_audio_music_3097.png" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <button>
+                            <img src="./imagenes/biggarbagebin_121980.png" alt="">
+                        </button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <a class="pt-8 text-center" href="./addSong.html"><h1>Agregar canción</h1></a>
+    </div>
+
+    <script src="./scripts.js"></script>
 </body>
 </html>

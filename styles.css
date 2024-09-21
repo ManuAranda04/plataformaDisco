@@ -3,8 +3,6 @@ label{
     display: inline-block;
 }
 
-/* Clases */
-
 /* TIPOGRAFIA */
 
 .kanit-regular{
@@ -13,53 +11,11 @@ label{
     font-style: normal;
 }
 
-/* REGISTRO */
-.formClass{
-    width: 40%;
-    color: white;
-    padding: 5%;
-    margin: auto;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    border-radius: 4px;
+/* PAGINA PRINCIPAL */
+.shadowClass{
     box-shadow: 7px 13px 37px black;
 }
 
-.formClass h1{
-    text-align: center;
-    margin-bottom: 5%;
-    text-transform: uppercase;
-}
-
-.formClass h3{
-    text-align: center;
-    margin-bottom: 5%;
-    text-transform: uppercase;
-}
-
-.formLabel{
-    width: 100%;
-    padding: 4%;
-    margin-bottom: 0.5rem;
-    font-size: 100%;
-    border: 1px solid white;
-}
-
-.formInput{
-    border: none;
-    color: white;
-    width: 60%;
-}
-
-.submitInput{
-    width: 100%;
-    border: none;
-    color: white;
-    margin-top: 16px;
-    font-size: 16px;
-}
-
-/* PAGINA PRINCIPAL */
 .losRedondos{
     text-align: center;
 
@@ -70,46 +26,38 @@ label{
     font-weight: 700;
 }
 
-/* ALBUM */
-.albumContainer{
-    display: flex;
-    justify-content: center;
-}
-
-.album{
+/* REGISTRO */
+.formClass{
+    margin: 128px auto;
+    padding: 16px;
     border-radius: 8px;
+    width: 60%;
+}
+
+.formClass h3{
     text-align: center;
-    box-shadow: 7px 10px 12px black;
-    padding: 12px 12px 0px 12px;
-    margin: 10px;
+    padding: 1%;
+    margin: 3% 0;
 }
 
-.album img {
-    transition: transform .2s;
-    margin-left: auto;
-    margin-right: auto;
-    height: 300px;
-    width: 300px;
+.formLabel{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    border: 1px solid white;
 }
 
-.album img:hover{
-    transform:scale(0.9);
+.inicioForm{
+    margin: 8px 0;
+    padding: 4px;
+    text-align: center;
 }
 
-/* LISTA DE CANCIONES */
-.listaCanciones{
-    margin: 0px 150px 0px 150px;
-    float: none;
-    display: flex;
-    align-items: center;
+.formInput{
+    width: 80%;
 }
 
-.listaCanciones span{
-    margin-left: 1.25em;
-    display: inline-block;
-}
-
-.listaCanciones span img{
-    float: right;
-    height: 24px;
+.submitInput{
+    width: 100%;
+    padding: 1%;
 }
