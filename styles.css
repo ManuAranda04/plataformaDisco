@@ -1,8 +1,3 @@
-/* Elementos */
-label{
-    display: inline-block;
-}
-
 /* TIPOGRAFIA */
 
 .kanit-regular{
@@ -28,12 +23,13 @@ label{
 
 /* REGISTRO */
 .formClass{
-    margin: 128px auto;
+    margin: 128px auto; /* Centrar el form */
     padding: 16px;
     border-radius: 8px;
-    width: 60%;
+    width: 60%; /* Hacerlo mas chico */
 }
 
+/* Titulo del form */
 .formClass h3{
     text-align: center;
     padding: 1%;
@@ -41,23 +37,24 @@ label{
 }
 
 .formLabel{
-    width: 100%;
+    width: 100%; /* Agrandar los labels para que funcione el inline */
     padding: 10px;
     margin-bottom: 8px;
     border: 1px solid white;
+    display: inline-block; /* Lables uno debajo del otro */
 }
 
-.inicioForm{
+.volverAlInicio{
     margin: 8px 0;
     padding: 4px;
     text-align: center;
 }
 
 .formInput{
-    width: 80%;
+    width: 80%; /* Width para que no se rompa en celulares y que los inputs esten al lado de los labels */ 
 }
 
 .submitInput{
-    width: 100%;
+    width: 100%; /* Hacer que el boton de enviar ocupe todo el form */
     padding: 1%;
 }
