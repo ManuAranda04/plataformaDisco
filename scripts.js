@@ -7,13 +7,14 @@ function saludarTours(){
     let span = document.getElementById("welcome");
     let i = document.querySelector("i");
 
-    nombre = prompt("Cuál es tu nombre?").toUpperCase();
+    nombre = prompt("Cuál es tu nombre?");
     while (nombre.length < 3){
-        nombre = prompt("Ingrese un nombre valido(al menos 3 letras)").toUpperCase();
+        nombre = prompt("Ingrese un nombre valido(al menos 3 letras)");
     }
     
     span.textContent = `Bienvenido, ${nombre}! ¿Querés adquirir tickets?`;
-    i.setAttribute("class", "fa fa-ticket");
+    i.setAttribute("class", "fa-solid fa-ticket");
+    i.setAttribute("style", "color: #ffffff")
 }
 
 function abrirMenu(){
