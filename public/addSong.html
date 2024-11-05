@@ -48,18 +48,19 @@
                 <input class="bg-zinc-800 text-white w-3/5 md:w-9/12 w-10/12" type="text" id="songDuration" step='any' placeholder="Duración de la canción" required>
             </label>
             <label class="w-full p-2.5 mb-2 rounded-none border border-white inline-block	">Link de la canción:
-                <input class="bg-zinc-800 text-white w-3/5 md:w-6/12 w-7/12" type="url" placeholder="https://www.youtube.com/tucancionaqui" required>
+                <input class="bg-zinc-800 text-white w-3/5 md:w-6/12 w-7/12" type="url" id="songLink" placeholder="https://www.youtube.com/cancion" required>
             </label>
 
             <div class="m-auto text-center lg:flex justify-between">
-                <button type="submit" class="px-4 py-1.5 mt-4 lg:mt-0 bg-zinc-950 hover:bg-zinc-50 hover:text-black">Agregar canción</button>
-    
-                <!-- Segundo boton no hace nada por el momento -->
+                <button type="submit" class="agregarCancion px-4 py-1.5 mt-4 lg:mt-0 bg-zinc-950 hover:bg-zinc-50 hover:text-black">Agregar canción</button>
+                <a href="index.html" class="px-4 py-1.5 mt-4 lg:mt-0 bg-zinc-950 hover:bg-zinc-50 hover:text-black">Volver al inicio</a>
                 <button type="reset" class="px-4 py-1.5 mt-4 lg:mt-0 bg-zinc-950 hover:bg-zinc-50 hover:text-black">Cancelar</button> 
             </div>
         </form>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./scripts.js"></script>
+    <script src="./addSong.js"></script>
 </body>
 </html>

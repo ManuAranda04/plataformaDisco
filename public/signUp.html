@@ -18,18 +18,18 @@
         <h3>Registro</h3>
         <form>
             <label class="formLabel">Nombre:
-                <input class="formInput text-white bg-zinc-800" type="text" placeholder="Ingresa tu nombre" required>
+                <input id="nombre" class="formInput text-white bg-zinc-800" type="text" placeholder="Ingresa tu nombre" required>
             </label>
             <label class="formLabel">Apellido:
-                <input class="formInput text-white bg-zinc-800" type="text" placeholder="Ingresa tu apellido" required>
+                <input id="apellido" class="formInput text-white bg-zinc-800" type="text" placeholder="Ingresa tu apellido" required>
             </label>
             <label class="formLabel">Correo electronico:
-                <input class="formInput text-white bg-zinc-800" type="email" placeholder="Ingresa tu E-Mail" required>
+                <input id="email" class="formInput text-white bg-zinc-800" type="email" placeholder="Ingresa tu E-Mail" required>
             </label>
             <label class="formLabel">Contraseña:
-                <input class="formInput text-white bg-zinc-800" type="password" placeholder="Ingresa tu contraseña" required>
+                <input id="password" class="formInput text-white bg-zinc-800" type="password" placeholder="Ingresa tu contraseña" required>
             </label>
-            <input class="submitInput bg-zinc-950 hover:bg-white hover:text-black duration-300" type="submit">
+            <button class="submitInput enviarUser bg-zinc-950 hover:bg-white hover:text-black duration-300">Enviar</button>
         </form>
 
         <div class="text-center pt-6">
@@ -38,5 +38,9 @@
 
         <a href="./index.html"><h1 class="volverAlInicio">Volver al inicio</h1></a>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./scripts.js"></script>
+    <script src="singUp.js"></script>
 </body>
 </html>

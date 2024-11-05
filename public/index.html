@@ -70,67 +70,108 @@
         historia de la música de Argentina, así como también uno de los más
         convocantes en términos de audiencia.
       </p>
-
-      <a href="./form.html">link temporal al formulario</a>
     </div>
 
     <!-- Albumes -->
 
-    <div class="md:flex justify-center text-center">
-      <div class="bg-zinc-800 p-3 m-8 rounded-lg shadowClass">
-        <button class="favoriteButton flex justify-between mb-2">
-          <i class="fa-regular fa-star favoriteIcon"></i>
-        </button>
-        <a href="./gulpAlbum.html"
-          ><img
-            class="w-full w-full md:h-64 md:w-64 hover:scale-90"
-            src="./imagenes/gulp.jpeg"
-            alt=""
-        /></a>
-        <a href="./gulpAlbum.html"
-          ><h1 class="text-3xl hover:bg-zinc-50 hover:text-black">Gulp!</h1></a
-        >
-        <h2>1985</h2>
-        <div class="flex justify-between">
-          <a
-            class="hover:bg-zinc-50 hover:text-black p-1"
-            href="./gulpAlbum.html"
-            >Vista del album</a
-          >
-          <button class="hover:bg-red-500 hover:text-white p-1">
-            Borrar album
-          </button>
-        </div>
-      </div>
-      <div class="bg-zinc-800 p-3 m-8 rounded-lg shadowClass">
-        <button class="favoriteButton flex justify-between mb-2">
-          <i class="fa-regular fa-star favoriteIcon"></i>
-        </button>
-        <a href="./oktubreAlbum.html"
-          ><img
-            class="w-full w-full md:h-64 md:w-64 hover:scale-90"
-            src="./imagenes/oktubre.jpg"
-            alt=""
-        /></a>
-        <a href="./oktubreAlbum.html"
-          ><h1 class="text-3xl hover:bg-zinc-50 hover:text-black">
-            Oktubre
-          </h1></a
-        >
-        <h2>1986</h2>
-        <div class="flex justify-between">
-          <a
-            class="hover:bg-zinc-50 hover:text-black p-1"
-            href="./oktubreAlbum.html"
-            >Vista del album</a
-          >
-          <button class="hover:bg-red-500 hover:text-white p-1">
-            Borrar album
-          </button>
-        </div>
-      </div>
+    <div class="losRedondos">
+      <h1 class="text-3xl">Albumes</h1>
     </div>
 
+    <div class="albumContainer flex flex-col md:space-y-4 md:p-4">
+      <!-- Albumes agregados directamente desde mongo -->
+      <!-- <div class="p-6 md:mx-32 my-8 md:my-0 bg-zinc-800 relative">
+        <img class="w-full w-full md:h-64 md:w-64 hover:scale-90 mx-auto" src="./imagenes/gulp.jpeg" alt="gulp">
+        <button class="favoriteButton absolute top-2 right-2 flex justify-between mb-2">
+          <i class="fa-regular fa-star favoriteIcon"></i>
+        </button>
+        <h2 class="text-3xl mt-4 mb-1">Gulp!</h2>
+        <p class="mt-2 mb-2">Gulp! es el álbum debut del grupo musical de Argentina Patricio Rey y sus Redonditos de Ricota, publicado por el sello Wormo en 1985. Gulp! fue grabado en 1984. La grabación tiene un aire festivo, apoyándose los temas en sólidas melodías de guitarra y saxofón. También cuentan con la colaboración de Lito Vitale en piano, Gonzalo Palacios en saxofón, los coros corrieron por parte de Claudia Puyó, Laura Hatton y María Calzada. Para la presentación del álbum la banda alquilo el Teatro Astros los días 16 y 17 de agosto pero, días antes del concierto, Valeria Lynch agrega fechas a sus shows y la banda queda afuera. Finalmente Gulp! se presentó el 23 de agosto de 1985, en la discoteca Cemento.
+        </p>
+
+        <h2 class="mt-4 mb-2 text-lg">Lista de Canciones</h2>
+        <ul class="space-y-2">
+          <li class="flex justify-between items-center p-2 bg-zinc-900 rounded-md">
+            <div class="flex items-center space-x-4">
+              <span class="text-sm">Barbazul Versus el Amor Letal</span>
+              <span class="text-sm">4:20</span>
+            </div>
+            <div class="flex items-center space-x-4">
+              <a href="https://www.youtube.com/watch?v=PAq7xAqXTxk">
+                <img src="./imagenes/note_audio_music_3097.png" alt="listen icon" class="w-full h-full">
+              </a>
+              <button class="w-6 h-6">
+                <img src="./imagenes/biggarbagebin_121980.png" alt="delete icon" class="w-full h-full">
+              </button>
+            </div>
+          </li>
+          <li class="flex justify-between items-center p-2 bg-zinc-900 rounded-md">
+            <div class="flex items-center space-x-4">
+              <span class="text-sm">La Bestia Pop</span>
+              <span class="text-sm">4:08</span>
+            </div>
+            <div class="flex items-center space-x-4">
+              <a href="https://www.youtube.com/watch?v=PAq7xAqXTxk">
+                <img src="./imagenes/note_audio_music_3097.png" alt="listen icon" class="w-full h-full">
+              </a>
+              <button class="w-6 h-6">
+                <img src="./imagenes/biggarbagebin_121980.png" alt="delete icon" class="w-full h-full">
+              </button>
+            </div>
+          </li>
+        </ul>
+
+        <button>Agregar Canción</button>
+      </div>
+
+      <div class="p-6 md:mx-32 my-8 md:my-0 bg-zinc-800 relative">
+        <img class="w-full w-full md:h-64 md:w-64 hover:scale-90 mx-auto" src="./imagenes/oktubre.jpg" alt="oktubre">
+        <button class="favoriteButton absolute top-2 right-2 flex justify-between mb-2">
+          <i class="fa-regular fa-star favoriteIcon"></i>
+        </button>
+        <h2 class="text-3xl mt-4 mb-1">Oktubre</h2>
+        <p class="mt-2 mb-2">Oktubre es el segundo álbum de estudio del grupo de rock argentino Patricio Rey y sus Redonditos de Ricota. Fue editado en octubre de 1986. Grabado a mediados de 1986, el álbum se caracteriza por un sonido que incorporó influencias del new wave y el post-punk (lo cual significó un cambio con respecto a su álbum anterior, Gulp!), y por su narrativa con elementos distópicos, inspirada por las revoluciones sociales históricas y el contexto bélico internacional de la Guerra Fría, así como también del escenario político de Argentina en el período de la vuelta a la democracia.</p>
+
+        <h2 class="mt-4 mb-2 text-lg">Lista de Canciones</h2>
+        <ul class="space-y-2">
+          <li class="flex justify-between items-center p-2 bg-zinc-900 rounded-md">
+            <div class="flex items-center space-x-4">
+              <span class="text-sm">Fuegos de octubre</span>
+              <span class="text-sm">3:38</span>
+            </div>
+            <div class="flex items-center space-x-4">
+              <a href="https://www.youtube.com/watch?v=IDg3e3VhcIc">
+                <img src="./imagenes/note_audio_music_3097.png" alt="listen icon" class="w-full h-full">
+              </a>
+              <button class="w-6 h-6">
+                <img src="./imagenes/biggarbagebin_121980.png" alt="delete icon" class="w-full h-full">
+              </button>
+            </div>
+          </li>
+          <li class="flex justify-between items-center p-2 bg-zinc-900 rounded-md">
+            <div class="flex items-center space-x-4">
+              <span class="text-sm">Preso en mi ciudad</span>
+              <span class="text-sm">4:04</span>
+            </div>
+            <div class="flex items-center space-x-4">
+              <a href="https://www.youtube.com/watch?v=7ucP8NOtVtM">
+                <img src="./imagenes/note_audio_music_3097.png" alt="listen icon" class="w-full h-full">
+              </a>
+              <button class="w-6 h-6">
+                <img src="./imagenes/biggarbagebin_121980.png" alt="delete icon" class="w-full h-full">
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div> -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./scripts.js"></script>
+    <script src="./addAlbum.js"></script>
+    <script src="./addSong.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", buscarAlbumes);
+    </script>
   </body>
 </html>

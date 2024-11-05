@@ -1,4 +1,4 @@
-/* Menu hamburguesa */
+//Menu hamburguesa
 let menu = document.getElementById('menu');
 let favoriteButton = document.querySelectorAll('.favoriteButton')
 
@@ -10,6 +10,7 @@ function abrirMenu(){
     }
 }
 
+//Favoritos
 favoriteButton.forEach(button => {
     button.addEventListener('click', function(){
         const icon = this.querySelector('.favoriteIcon');
