@@ -39,10 +39,9 @@ async function borrarCancion(albumId, cancionId) {
 
 async function editarCancion(albumId, cancionId, nombre, duracion, enlace) {
     try {
-        const editarCancionBtn = document.querySelector(".editarCancionBtn");
-        editarCancionBtn.disabled = true;
-
         const liCancion = document.querySelector(`[data-song-id="${cancionId}"]`);
+        const editarCancionBtn = liCancion.querySelector(".editarCancionBtn");
+        editarCancionBtn.disabled = true;
 
         const editarCancionForm = document.createElement("div");
         editarCancionForm.classList.add("editarCancionDiv", "p-2", "mt-2");
@@ -95,7 +94,8 @@ async function actualizarCancion(albumId, cancionId) {
 
 async function cancelarEditSng(cancionId){
     let editarCancionForm = document.querySelector(".editarCancionDiv");
-    let editarCancionBtn = document.querySelector(".editarCancionBtn");
+    const liCancion = document.querySelector(`[data-song-id="${cancionId}"]`);
+    let editarCancionBtn = liCancion.querySelector(".editarCancionBtn");
     editarCancionBtn.disabled = false;
     try {
         editarCancionForm.remove();
