@@ -20,7 +20,7 @@ async function crearUsuario(event) {
         });
     }catch(error) {
         swal("Lo sentimos!", "Su usario no ha podido ser creado", "error")
-        console.error(error.response?.data || error.message);
+        console.error(error);
     }
 }
 
