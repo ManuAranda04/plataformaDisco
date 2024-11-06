@@ -4,6 +4,7 @@ async function agregarCancion() {
     let enlace = document.querySelector("#songLink");
     const urlParams = new URLSearchParams(window.location.search);
     const albumId = urlParams.get("albumId");
+    event.preventDefault();
     
     try {
         const response = await axios.post(`http://localhost:3000/albums/${albumId}/canciones`, {
@@ -11,10 +12,13 @@ async function agregarCancion() {
             duracion:duracion.value,
             enlace:enlace.value
         });
+        alert("Cancion agregado correctamente!")
         window.location.href = "index.html";
     }catch(error) {
-        console.error("Error al agregar canción:", error);
         alert("Hubo un error al agregar la cancion. Por favor, intente nuevamente");
+        location.reload();
+        //Debugging
+        console.error("Error al agregar canción:", error);
     }
 }
 
@@ -69,6 +73,7 @@ async function editarCancion(albumId, cancionId, nombre, duracion, enlace) {
         cancionForm.addEventListener("submit", async (event) => {
             event.preventDefault();
             await actualizarCancion(albumId, cancionId);
+            location.reload();
         });
     }catch(error){
         alert("Error al editar canción. Por favor, intente nuevamente.");

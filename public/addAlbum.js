@@ -24,12 +24,10 @@ async function crearAlbum() {
         ],
         });
         console.log(response);
+        alert("Album creado correctamente!")
         window.location.href = "index.html";
     }catch(error) {
         alert("Error al crear el album!")
-        if (error.response) {
-            console.log("Server response data:", error.response.data);
-        }
         console.log(error);
     }
 }
@@ -54,7 +52,13 @@ async function mostrarAlbum(album){
         nuevoAlbum.classList.add("p-6", "md:mx-32", "my-8", "md:my-0", "bg-zinc-800", "relative", "claseAlbum");
         nuevoAlbum.setAttribute("data-id", album._id);
 
-        const anioFormateado = new Date(album.anio).toLocaleDateString("en-GB");
+        //nuevoAnio para evitar problemas
+        //La fecha se guarda como aaaa-mm-ddT00:00:00.000+00:00
+        //Esto es necesario para que no se muestre la fecha incorrecta
+        //De otra forma, el album muestra un dia anterior al ingresado en el input
+        const [nuevoAnio, mes, dia] = album.anio.split("T")[0].split("-");
+        //pasar la fecha a formato dd/mm/aaaa
+        const anioFormateado = `${dia}/${mes}/${nuevoAnio}`;
 
         let listaCanciones = '';
         album.canciones.forEach(cancion =>{
@@ -65,12 +69,12 @@ async function mostrarAlbum(album){
                         <span class="text-sm">${cancion.duracion}</span>
                     </div>
                     <div class="flex items-center space-x-4">
-                        <button class="editarCancionBtn" onclick="editarCancion('${album._id}', '${cancion._id}', '${cancion.nombre}', '${cancion.duracion}', '${cancion.enlace}')">
-                            <i class="fa-regular fa-pen-to-square w-full h-full" style="color: #ffffff;"></i>
-                        </button>
                         <a href="${cancion.enlace}">
                             <i class="fa-brands fa-itunes-note w-full h-full" style="color: #ffffff;"></i>
                         </a>
+                        <button class="editarCancionBtn" onclick="editarCancion('${album._id}', '${cancion._id}', '${cancion.nombre}', '${cancion.duracion}', '${cancion.enlace}')">
+                            <i class="fa-regular fa-pen-to-square w-full h-full" style="color: #ffffff;"></i>
+                        </button>
                         <button class="w-6 h-6 borrarCancion" onclick="borrarCancion('${album._id}', '${cancion._id}')">
                             <i class="fa-solid fa-trash w-full h-full" style="color: #ffffff;"></i>
                         </button>
@@ -110,33 +114,39 @@ async function borrarAlbum(albumId) {
     if(!estasSeguro){
         return;
     }
-
+    
     try {
         await axios.delete(`http://localhost:3000/albums/${albumId}`);
-        document.querySelector(`.albumContainer .album[data-id="${albumId}"]`).remove();
-        alert("Album eliminado correctamente")
-        location.reload();
+        //Este .remove no es necesario 
+        //Los albumes se agregan directamente desde la database
+        //Al borrar el album, el .album[data-id="${albumId}"] ya no existe
+        //Por lo tanto, la funcion se va al catch
+        //document.querySelector(`.albumContainer .album[data-id="${albumId}"]`).remove();
     }catch(error){
+        alert("Error al eliminar el album. Por favor, intente nuevamente.");
         console.log(error);
+        return;
     }    
+    alert("Album eliminado correctamente");
+    location.reload();
 }
 
 function editarAlbum(id, titulo, anio, descripcion, portada) {
-    let botonEditar = document.querySelector(".editBtn");
-    botonEditar.classList.remove("bg-zinc-950", "hover:bg-zinc-50", "hover:text-black", "hover:duration-300", "hover:border-black");
-    botonEditar.classList.add("bg-zinc-50", "text-black")
-    botonEditar.disabled = true;
-
+    
     let albumAEditar = document.querySelector(`[data-id='${id}']`);
     let editarAlbumForm = document.createElement("div");
     editarAlbumForm.classList.add("editAlbumDiv", "p-2", "mt-2");
-
+    let botonEditar = albumAEditar.querySelector(".editBtn");
+    botonEditar.classList.remove("bg-zinc-950", "hover:bg-zinc-50", "hover:text-black", "hover:duration-300", "hover:border-black");
+    botonEditar.classList.add("bg-zinc-50", "text-black")
+    botonEditar.disabled = true;
+    
     editarAlbumForm.innerHTML = `
         <form id="editAlbumForm">
             <label class="formLabel"> Editar Titulo:
                 <input class="formInput bg-zinc-800 text-white" type="text" id="editarTitulo" value="${titulo}">
             </label>
-            <label class="formLabel"> Editar Fecha de Lanzamiento:
+            <label class="formLabel"> Editar Fecha de Lanzamiento (Dejar en blanco si no se quiere modificar):
                 <input class="formInput bg-zinc-800 text-white" type="date" id="editarFecha" value="${anio}">
             </label>
             <label class="formLabel">Editar Descripción:
@@ -178,14 +188,19 @@ async function actualizarAlbum(id) {
         const response = await axios.put(`http://localhost:3000/albums/${id}`, actualizarInfo)
 
         mostrarAlbum(response.data);
+        alert("Album actualizado correctamente!");
+        location.reload();
     }catch(error) {
+        alert("Error al actualizar el album!");
+        location.reload();
         console.error(error);
     }
 }
 
 async function cancelarEdit(id){
+    let albumAEditar = document.querySelector(`[data-id='${id}']`);
     let editarAlbumForm = document.querySelector(".editAlbumDiv");
-    let botonEditar = document.querySelector(".editBtn");
+    let botonEditar = albumAEditar.querySelector(".editBtn");
     botonEditar.disabled = false;
     botonEditar.classList.remove("bg-zinc-50", "text-black")
     botonEditar.classList.add("bg-zinc-950", "hover:bg-zinc-50", "hover:text-black", "hover:duration-300", "hover:border-black");
