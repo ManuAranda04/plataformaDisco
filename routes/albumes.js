@@ -46,6 +46,7 @@ router.delete('/:id', async (req, res) =>{
         await Albumes.findByIdAndDelete(albumId);
         res.status(204).send()
     } catch(error){
+        console.log(error)
         res.status(500).json({ error: 'Error al borrar el album' })
     }
 })
@@ -70,7 +71,7 @@ router.post('/:id/canciones', async (req, res)=>{
     const albumId = req.params.id;
     const nombre = req.body.nombre;
     const duracion = req.body.duracion;
-    const enlace = req.body.link;
+    const enlace = req.body.enlace;
 
     try{
         const album = await Albumes.findByIdAndUpdate(
