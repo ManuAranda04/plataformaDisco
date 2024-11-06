@@ -1,9 +1,11 @@
 const express = require("express")
 const mongoose = require('mongoose')
+const dotenv = require('dotenv').config()
 const router = require('./routes/server')
 const Albumes = require('./models/Album')
 const Users = require('./models/User')
-const url = 'mongodb+srv://manuivan2004:pGnT5f2we0LyITto@plataformadisco.a5kht.mongodb.net/?retryWrites=true&w=majority&appName=plataformaDisco'
+const url = process.env.DATABASE_URL
+const PORT = process.env.PORT
 
 const app = express()
 app.use(express.json())
@@ -18,7 +20,7 @@ const connectToMongo = async ()=>{
   try {
     await mongoose.connect(url)
 
-    app.listen(3000, () => {
+    app.listen(PORT, () => {
       console.log("Servidor escuchando en el puerto 3000 y DB conectado");
     });
   }catch (error) {

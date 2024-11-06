@@ -24,7 +24,7 @@
                 <input id="anio" class="formInput bg-zinc-800 text-white" type="date" required>
             </label>
             <label>Descripción
-                <textarea class="text-black w-full p-3 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-50 bg-zinc-900 text-white" id="descripcion" cols="80" rows="10" minlength="5" maxlength="400" required></textarea>
+                <textarea onkeydown="cancelar()" class="text-black w-full p-3 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-50 bg-zinc-900 text-white" id="descripcion" cols="80" rows="10" minlength="5" maxlength="400" required></textarea>
             </label>
             <label class="formLabel">Portada (URL)
                 <input type="text" class="formInput bg-zinc-800 text-white" id="portada" placeholder="URL de la imagen" required>
@@ -48,6 +48,7 @@
         <a href="./index.html"><h1 class="volverAlInicio">Volver al inicio</h1></a>
     </div>
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="scripts.js"></script>
     <script src="addAlbum.js"></script>

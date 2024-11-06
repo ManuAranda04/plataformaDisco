@@ -1,35 +1,27 @@
 //Backend
-async function obtenerUsuario(id) {
-    try {
-        const response = await axios.get("http://localhost:3000/usuarios/");
-        console.log(response);
-    } catch (error) {
-        console.log(error);
-    }    
-}
-
-//obtenerAlbum(id);
-
-//Crear usuario
-async function crearUsuario() {
+async function crearUsuario(event) {
     event.preventDefault();
 
     try {
-        const nombre = document.querySelector("#nombre");
-        const apellido = document.querySelector("#apellido");
-        const email = document.querySelector("#email");
-        const password = document.querySelector("#password");
+        const nombre = document.querySelector("#nombre").value;
+        const apellido = document.querySelector("#apellido").value;
+        const email = document.querySelector("#email").value;
+        const password = document.querySelector("#password").value;
 
-        const response = await axios.post("http://localhost:3000/usuarios/",{
-            nombre:nombre.value,
-            apellido:apellido.value,
-            email:email.value,
-            password:password.value,
+        const response = await axios.post("http://localhost:3000/usuarios/login", {
+            nombre,
+            apellido,
+            email,
+            password,
         });
-        console.log(response);        
-    } catch (error) {
-        console.log(error);
+
+        swal("Felicidades", "Su usario ha sido creado correctamente", "success").then(()=>{
+            window.location.href = "index.html";
+        });
+    }catch(error) {
+        swal("Lo sentimos!", "Su usario no ha podido ser creado", "error")
+        console.error(error.response?.data || error.message);
     }
 }
 
-document.querySelector(".enviarUser").addEventListener("click",crearUsuario)
+document.querySelector(".enviarUser").addEventListener("click",crearUsuario);

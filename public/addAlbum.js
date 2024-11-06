@@ -1,3 +1,12 @@
+//Necesario para que no de error al editar album
+function cancelar() {
+    var key = event.keyCode;
+
+    if (key === 13) {
+        event.preventDefault();
+    }
+}
+
 async function crearAlbum() {
     event.preventDefault();
 
@@ -24,10 +33,12 @@ async function crearAlbum() {
         ],
         });
         console.log(response);
-        alert("Album creado correctamente!")
-        window.location.href = "index.html";
+        swal("Album creado correctamente", `El album ${titulo.value} ha sido creado con exito.`, "success").then(()=>{
+            window.location.href = "index.html";
+        });
     }catch(error) {
-        alert("Error al crear el album!")
+        swal("Error al crear el album", "Ha habido un error al crear el album. Por favor, intentelo nuevamente", "error")
+        //alert("Error al crear el album!")
         console.log(error);
     }
 }
@@ -98,7 +109,7 @@ async function mostrarAlbum(album){
 
             <div class="p-2 mt-2 flex justify-between">
                 <a href="addSong.html?albumId=${album._id}"><button class="addSongBtn p-2 rounded border-solid border-2 bg-zinc-950 hover:bg-zinc-50 hover:text-black hover:duration-300 hover:border-black">Agregar Canción</button></a>
-                <button class="deleteBtn p-2 rounded border-solid border-2 bg-zinc-950 hover:bg-zinc-50 hover:text-black hover:duration-300 hover:border-black" onclick="borrarAlbum('${album._id}')">Borrar Album</button>
+                <button class="deleteBtn p-2 rounded border-solid border-2 bg-zinc-950 hover:bg-zinc-50 hover:text-black hover:duration-300 hover:border-black" onclick="borrarAlbum('${album._id}', '${album.titulo}')">Borrar Album</button>
                 <button class="editBtn p-2 rounded border-solid border-2 bg-zinc-950 hover:bg-zinc-50 hover:text-black hover:duration-300 hover:border-black" onclick="editarAlbum('${album._id}', '${album.titulo}', '${album.anio}' ,'${album.descripcion}', '${album.portada}')">Editar Album</button>
             </div>
         `;
@@ -109,7 +120,7 @@ async function mostrarAlbum(album){
     }
 }
 
-async function borrarAlbum(albumId) {
+async function borrarAlbum(albumId, titulo) {
     const estasSeguro = confirm("Seguro que quieres borrar este album?");
     if(!estasSeguro){
         return;
@@ -123,12 +134,14 @@ async function borrarAlbum(albumId) {
         //Por lo tanto, la funcion se va al catch
         //document.querySelector(`.albumContainer .album[data-id="${albumId}"]`).remove();
     }catch(error){
-        alert("Error al eliminar el album. Por favor, intente nuevamente.");
+        swal("Error al eliminar el album", "A ocurrido un error al eliminar el album. Por favor, intente nuevamente", "error");
+        //alert("Error al eliminar el album. Por favor, intente nuevamente.");
         console.log(error);
         return;
-    }    
-    alert("Album eliminado correctamente");
-    location.reload();
+    } 
+    swal("Album eliminado correctamente!", `Se ha eliminado el album ${titulo}`, "success").then(()=>{
+        location.reload();
+    });
 }
 
 function editarAlbum(id, titulo, anio, descripcion, portada) {
@@ -150,7 +163,7 @@ function editarAlbum(id, titulo, anio, descripcion, portada) {
                 <input class="formInput bg-zinc-800 text-white" type="date" id="editarFecha" value="${anio}">
             </label>
             <label class="formLabel">Editar Descripción:
-                <textarea class="text-black" id="editarDescripcion" minlength="5" maxlength="400">${descripcion}</textarea>
+                <textarea onkeydown="cancelar()" class="text-black" id="editarDescripcion" minlength="5" maxlength="400">${descripcion}</textarea>
             </label>
             <label class="formLabel">Editar Portada(URL):
                 <input class="formInput bg-zinc-800 text-white" type="text" id="editarPortada" value="${portada}">
@@ -188,11 +201,14 @@ async function actualizarAlbum(id) {
         const response = await axios.put(`http://localhost:3000/albums/${id}`, actualizarInfo)
 
         mostrarAlbum(response.data);
-        alert("Album actualizado correctamente!");
-        location.reload();
+        swal("Album actualizado", `El album ${titulo} ha sido actualizado.`, "success").then(()=>{
+            location.reload();
+        });
     }catch(error) {
-        alert("Error al actualizar el album!");
-        location.reload();
+        //alert("Error al actualizar el album!");
+        swal("Error :/", "Ha habido un error al actualizar el album. Por favor, intente nuevamente", "error").then(()=>{
+            location.reload();
+        });
         console.error(error);
     }
 }

@@ -12,11 +12,14 @@ async function agregarCancion() {
             duracion:duracion.value,
             enlace:enlace.value
         });
-        alert("Cancion agregado correctamente!")
-        window.location.href = "index.html";
+        swal("Cancion agregada correctamente!", `La cancion ${nombre.value} ha sido agregada.`, "success").then(()=>{
+            window.location.href = "index.html";
+        })
+        //alert("Cancion agregado correctamente!")
     }catch(error) {
-        alert("Hubo un error al agregar la cancion. Por favor, intente nuevamente");
-        location.reload();
+        alert("Error al agregar la cancion!", "Hubo un error al agregar la cancion. Por favor, intente nuevamente", "error").then(()=>{
+            location.reload();
+        })
         //Debugging
         console.error("Error al agregar canción:", error);
     }
@@ -33,10 +36,11 @@ async function borrarCancion(albumId, cancionId) {
     try {
         await axios.delete(`http://localhost:3000/albums/${albumId}/canciones/${cancionId}`);
         document.querySelector(`li[data-song-id="${cancionId}"]`).remove();
-        alert("Cancion eliminada correctamente");
-        location.reload();
+        swal("Se ha borrado una cancion!", "La cancion ha sido eliminada correctamente.", "success").then(()=>{
+            location.reload();
+        });
     }catch(error) {
-        alert("Error al borrar canción. Intente nuevamente.");
+        swal("Error al borrar una canción!", "Ha habido un error al borrar una canción. Por favor, intente nuevamente.", "error");
         console.log(error);
     }
 }
@@ -73,7 +77,6 @@ async function editarCancion(albumId, cancionId, nombre, duracion, enlace) {
         cancionForm.addEventListener("submit", async (event) => {
             event.preventDefault();
             await actualizarCancion(albumId, cancionId);
-            location.reload();
         });
     }catch(error){
         alert("Error al editar canción. Por favor, intente nuevamente.");
@@ -91,9 +94,12 @@ async function actualizarCancion(albumId, cancionId) {
             cancion: { nombre:nombre.value, duracion:duracion.value, enlace: enlace.value }
         });
         console.log(response.data);
-        alert("Canción actualizada correctamente!");
+        swal("Se ha actualizado una canción!", `La cancion ${nombre.value} se ha actualizado correctamente`, "success").then(()=>{
+            location.reload();
+        });
     }catch(error){
         console.log(error);
+        swal("Ha habido un error!", "Ha habido un error al actualizar la canción. Por favor, intente nuevamente.", "error");
     }
 }
 

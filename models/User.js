@@ -16,6 +16,7 @@ const Users = new mongoose.Schema({
     },
     email:{type:String,
         required:true,
+        unique:true,
         validate: {
             validator: function(v){
                 return regex.test(v);
