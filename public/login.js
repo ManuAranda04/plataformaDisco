@@ -43,10 +43,6 @@ async function loginUsuario(event) {
           email,
           password,
       });
-
-      const token = response.data.token;
-      localStorage.setItem("authToken", token);
-
       console.log("Inicio de sesión exitoso");
   } catch (error) {
       console.log(error);
