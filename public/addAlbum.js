@@ -19,7 +19,7 @@ async function crearAlbum() {
         const duracionCancion = document.querySelector("#duracionCancion");
         const enlaceCancion = document.querySelector("#enlaceCancion");
 
-        const response = await axios.post("http://localhost:3000/albums/",{
+        const response = await axios.post("https://plataformadisco-tqep.onrender.com/albums/",{
             titulo:titulo.value,
             anio:anio.value,
             descripcion:descripcion.value,
@@ -47,7 +47,7 @@ document.querySelector(".enviarAlbum").addEventListener("click",crearAlbum);
 
 async function buscarAlbumes() {
     try {
-        let response = await axios.get("http://localhost:3000/albums/")
+        let response = await axios.get("https://plataformadisco-tqep.onrender.com/albums/")
         response.data.forEach(album => mostrarAlbum(album));
     }catch(error) {
         console.log(error);
@@ -127,7 +127,7 @@ async function borrarAlbum(albumId, titulo) {
     }
     
     try {
-        await axios.delete(`http://localhost:3000/albums/${albumId}`);
+        await axios.delete(`https://plataformadisco-tqep.onrender.com/albums/${albumId}`);
         //Este .remove no es necesario 
         //Los albumes se agregan directamente desde la database
         //Al borrar el album, el .album[data-id="${albumId}"] ya no existe
@@ -198,7 +198,7 @@ async function actualizarAlbum(id) {
         if(descripcion) actualizarInfo.descripcion = descripcion;
         if(portada) actualizarInfo.portada = portada;
 
-        const response = await axios.put(`http://localhost:3000/albums/${id}`, actualizarInfo)
+        const response = await axios.put(`https://plataformadisco-tqep.onrender.com/albums/${id}`, actualizarInfo)
 
         mostrarAlbum(response.data);
         swal("Album actualizado", `El album ${titulo} ha sido actualizado.`, "success").then(()=>{

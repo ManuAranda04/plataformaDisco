@@ -7,7 +7,7 @@ async function agregarCancion() {
     event.preventDefault();
     
     try {
-        const response = await axios.post(`http://localhost:3000/albums/${albumId}/canciones`, {
+        const response = await axios.post(`https://plataformadisco-tqep.onrender.com/albums/${albumId}/canciones`, {
             nombre:nombre.value,
             duracion:duracion.value,
             enlace:enlace.value
@@ -34,7 +34,7 @@ async function borrarCancion(albumId, cancionId) {
     }
 
     try {
-        await axios.delete(`http://localhost:3000/albums/${albumId}/canciones/${cancionId}`);
+        await axios.delete(`https://plataformadisco-tqep.onrender.com/albums/${albumId}/canciones/${cancionId}`);
         document.querySelector(`li[data-song-id="${cancionId}"]`).remove();
         swal("Se ha borrado una cancion!", "La cancion ha sido eliminada correctamente.", "success").then(()=>{
             location.reload();
@@ -90,7 +90,7 @@ async function actualizarCancion(albumId, cancionId) {
         const duracion = document.querySelector("#duracion");
         const enlace = document.querySelector("#enlace");
         
-        const response = await axios.put(`http://localhost:3000/albums/${albumId}/canciones/${cancionId}`, {
+        const response = await axios.put(`https://plataformadisco-tqep.onrender.com/albums/${albumId}/canciones/${cancionId}`, {
             cancion: { nombre:nombre.value, duracion:duracion.value, enlace: enlace.value }
         });
         console.log(response.data);
