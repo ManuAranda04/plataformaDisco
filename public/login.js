@@ -39,7 +39,7 @@ async function loginUsuario(event) {
       const email = document.querySelector("#emailInput").value;
       const password = document.querySelector("#passwordInput").value;
 
-      const response = await axios.post("https://plataformadisco-tqep.onrender.com/login", {
+      const response = await axios.post("https://plataformadisco-tqep.onrender.com/usuarios/login", {
           email,
           password,
       });
