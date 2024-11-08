@@ -115,6 +115,23 @@ async function mostrarAlbum(album){
         `;
 
         albumContainer.appendChild(nuevoAlbum);
+
+        //Botón Favoritos movido al album para que no de errores
+        let favoriteButton = nuevoAlbum.querySelectorAll('.favoriteButton')
+        favoriteButton.forEach(button => {
+            button.addEventListener('click', function(){
+                const icon = this.querySelector('.favoriteIcon');
+                if (icon.classList.contains('fa-regular')) {
+                    icon.classList.remove('fa-regular');
+                    icon.classList.add('fa-solid');
+                    icon.style.color = '#FFD43B';
+                } else {
+                    icon.classList.remove('fa-solid');
+                    icon.classList.add('fa-regular');
+                    icon.style.color = '#fff';
+                }
+            })    
+        });
     }catch(error){
         console.log(error)
     }
