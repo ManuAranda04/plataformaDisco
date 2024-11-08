@@ -4,6 +4,7 @@ const router = express.Router();
 const dotenv = require('dotenv').config()
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const User = require('../models/User');
 
 const saltRounds = process.env.SALT_ROUNDS;
 const secret = process.env.JWTSECRET;
@@ -12,7 +13,7 @@ const hashPassword = async(pass)=>{
     return bcrypt.hash(pass, parseInt(saltRounds));
 };
 
-router.post('/', async (req, res) => {
+router.post('/register', async (req, res) => {
     const { nombre, apellido, email, password } = req.body;
 
     try {
@@ -52,5 +53,16 @@ router.post('/login', async (req, res)=>{
         res.status(500).json({error:'Error en el inicio de sesión', error});
     }
 });
+
+router.put('/:id', async (req, res)=>{
+    try {
+        const actualizarUsuario = await Users.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if(!actualizarUsuario){
+            return res.status(404).json({ error: 'Usuario no encontrado' });
+        }
+    }catch(error) {
+        res.status(404).json({ error: error.message })
+    }
+})
 
 module.exports = router
