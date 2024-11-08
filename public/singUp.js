@@ -8,7 +8,7 @@ async function crearUsuario(event) {
         const email = document.querySelector("#email").value;
         const password = document.querySelector("#password").value;
 
-        const response = await axios.post("https://plataformadisco-tqep.onrender.com/usuarios/login", {
+        const response = await axios.post("https://plataformadisco-tqep.onrender.com/usuarios/register", {
             nombre,
             apellido,
             email,
